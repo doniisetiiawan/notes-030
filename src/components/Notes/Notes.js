@@ -1,10 +1,10 @@
-import React, {PureComponent} from "react";
+import React, { Component } from "react";
 import moment from "moment";
 import "./Notes.css";
 
 const formatTime = "YYYY-MM-DD HH:mm:ss";
 
-class Notes extends PureComponent {
+class Notes extends Component {
   constructor(props) {
     super(props);
 
@@ -23,6 +23,12 @@ class Notes extends PureComponent {
           .toString()
       });
     }
+  }
+
+  componentWillUnmount() {
+    console.log("Hasta la vista baby!");
+    document.body.style = "background: black;";
+    document.getElementById("unmountMessage").style.color = "white";
   }
 
   render() {
@@ -45,7 +51,5 @@ class Notes extends PureComponent {
     );
   }
 }
-
-Notes.propTypes = {};
 
 export default Notes;
